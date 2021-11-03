@@ -1,7 +1,5 @@
 const initialState = {
-    name:"ARI",
-    date:"Today",
-    assignment:"Lambda project"
+    picture: "https://images.dog.ceo/breeds/akita/Akita_hiking_in_Shpella_e_Pellumbasit.jpg"
 }
 
 export const reducer = (state = initialState, action) => {

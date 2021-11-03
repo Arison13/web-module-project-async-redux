@@ -8,13 +8,15 @@ import { reducer } from './reducers';
 
 const store = createStore(reducer)
 
-const rootElement = document.getElementById('root');
+console.log("from the store:",store.getState())
 
+const rootElement = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
   rootElement
 );
+
 
 
