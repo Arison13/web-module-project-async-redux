@@ -1,17 +1,14 @@
 import React, {useEffect} from "react";
-import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { fetchStart, fetchSuccess, fetchError } from "../actions";
+import { getDog } from "../actions";
 
 const Dog = ({picture, dispatch, isFetching, error}) => { 
 
-    // isFetching = false ;
+    useEffect( () => {
+        dispatch(getDog());
+    }, []);
 
-    // useEffect( () => {
-    //     dispatch(fetchStart())
-
-    // }, [])
     if (error) {
         return (<h2>Opps, Something Went Wrong: {error}</h2>)
     }
@@ -20,17 +17,7 @@ const Dog = ({picture, dispatch, isFetching, error}) => {
     }
 
 const handleClick = () => {
-    dispatch(fetchStart())
-
-    axios.get("https://dog.ceo/api/breeds/image/random")
-        .then((resp) => {
-            console.log(resp.data)
-            dispatch(fetchSuccess(resp.data.message))
-        })
-        .catch((err) => {
-            console.log(err)
-            dispatch(fetchError(err))
-        })
+    dispatch(getDog())
     }
       
 return (
